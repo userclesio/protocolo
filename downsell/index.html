@@ -413,14 +413,30 @@
       var txId = params.get('landpay_tx') || window.landpayTxId || '';
       var linkId = params.get('landpay_link') || window.landpayLinkId || '';
       var c = document.getElementById('landpay-upsell-413a027a-3398-4882-a5ea-51b514f268c8');
+      if (!c) return;
+
+      var frameOrigin = "https://landpay.site";
       var f = document.createElement('iframe');
-      f.src = 'https://landpay.site/upsell/413a027a-3398-4882-a5ea-51b514f268c8?embed=true&tx=' + txId + '&link=' + linkId;
-      f.style.cssText = 'width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden';
+      f.src = "https://landpay.site/upsell/413a027a-3398-4882-a5ea-51b514f268c8" + '?embed=true&tx=' + encodeURIComponent(txId) + '&link=' + encodeURIComponent(linkId);
+      f.style.cssText = "width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden";
       c.appendChild(f);
-      window.addEventListener('message', function(e) {
-        if (e.data && e.data.type === 'landpay-resize') f.style.height = e.data.height + 'px';
-        if (e.data && e.data.type === 'landpay-redirect') window.location.href = e.data.url;
-      });
+
+      function handleMessage(e) {
+        if (e.origin !== frameOrigin) return;
+        if (e.source !== f.contentWindow) return;
+        if (!e.data || typeof e.data !== 'object') return;
+
+        if (e.data.type === 'landpay-resize' && typeof e.data.height === 'number') {
+          f.style.height = Math.max(320, e.data.height) + 'px';
+        }
+
+        if (e.data.type === 'landpay-redirect' && typeof e.data.url === 'string' && e.data.url) {
+          window.removeEventListener('message', handleMessage);
+          window.location.href = e.data.url;
+        }
+      }
+
+      window.addEventListener('message', handleMessage);
     })();
     </script>
 
