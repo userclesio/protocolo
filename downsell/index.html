@@ -299,6 +299,84 @@
       flex-shrink: 0;
     }
 
+    /* ── PRICE BOX ── */
+    .price-box {
+      background: linear-gradient(135deg, #1a1a28, #12121a);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      margin: 24px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(245,197,24,.15);
+    }
+    .price-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,197,24,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .only-here-tag {
+      display: inline-block;
+      background: rgba(224,32,32,.9);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 14px;
+    }
+    .price-box h3 { font-size: 20px; font-weight: 900; color: var(--gold); margin-bottom: 16px; line-height: 1.2; }
+    .price-original { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+    .price-now { font-size: 46px; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 6px; }
+    .price-now sup { font-size: 22px; vertical-align: super; color: var(--gold); }
+    .price-label { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .price-saving {
+      display: inline-block;
+      background: rgba(0,200,83,.15);
+      color: var(--green);
+      border: 1px solid rgba(0,200,83,.3);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-yes {
+      display: block; width: 100%;
+      background: linear-gradient(135deg, #f5c518 0%, #ff8c00 100%);
+      color: #000; font-family: inherit; font-size: 16px; font-weight: 900;
+      text-align: center; padding: 18px 20px; border-radius: 12px; border: none;
+      cursor: pointer; text-decoration: none; text-transform: uppercase;
+      letter-spacing: .5px; line-height: 1.25;
+      box-shadow: 0 4px 24px rgba(245,197,24,.4), 0 2px 8px rgba(0,0,0,.4);
+      transition: transform .15s, box-shadow .15s; margin-bottom: 12px;
+    }
+    .btn-yes:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,197,24,.5), 0 4px 12px rgba(0,0,0,.4); }
+    .btn-yes:active { transform: translateY(0); }
+    .btn-yes small { display: block; font-size: 11px; font-weight: 600; opacity: .75; text-transform: none; letter-spacing: 0; margin-top: 3px; }
+    .btn-no {
+      display: block; width: 100%; background: transparent; color: var(--muted);
+      font-family: inherit; font-size: 12px; text-align: center; padding: 12px;
+      border: none; cursor: pointer; text-decoration: underline; line-height: 1.4;
+    }
+    .btn-no:hover { color: #ccc; }
+
+    /* ── GUARANTEE ── */
+    .guarantee {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(0,200,83,.08); border: 1px solid rgba(0,200,83,.2);
+      border-radius: 10px; padding: 12px 14px; margin-bottom: 16px;
+    }
+    .guarantee .g-icon { font-size: 28px; flex-shrink: 0; }
+    .guarantee p { font-size: 12px; color: #bbb; line-height: 1.45; }
+    .guarantee p strong { color: var(--green); }
+
     /* ── DIVIDER ── */
     .divider {
       border: none;
@@ -404,41 +482,32 @@
       </div>
     </div>
 
-    <!-- LANDPAY DOWNSELL -->
-    <!-- Landpay Downsell: Guia da Testosterona Natural -->
-    <div id="landpay-upsell-413a027a-3398-4882-a5ea-51b514f268c8"></div>
-    <script>
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      var txId = params.get('landpay_tx') || window.landpayTxId || '';
-      var linkId = params.get('landpay_link') || window.landpayLinkId || '';
-      var c = document.getElementById('landpay-upsell-413a027a-3398-4882-a5ea-51b514f268c8');
-      if (!c) return;
+    <!-- PRICE BOX + CTA -->
+    <div class="price-box">
+      <div class="only-here-tag">🔥 Última oportunidade — só aqui</div>
+      <h3>Guia da Testosterona Natural<br>— Versão Essencial</h3>
+      <div class="price-original">Valor normal: 1.200 meticais</div>
+      <div class="price-now"><sup>MT</sup>197</div>
+      <div class="price-label">pagamento único · acesso imediato</div>
+      <div class="price-saving">Estás a poupar 1.003 meticais hoje</div>
+    </div>
 
-      var frameOrigin = "https://landpay.site";
-      var f = document.createElement('iframe');
-      f.src = "https://landpay.site/upsell/413a027a-3398-4882-a5ea-51b514f268c8" + '?embed=true&tx=' + encodeURIComponent(txId) + '&link=' + encodeURIComponent(linkId);
-      f.style.cssText = "width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden";
-      c.appendChild(f);
+    <!-- GUARANTEE -->
+    <div class="guarantee">
+      <div class="g-icon">🛡️</div>
+      <p><strong>Garantia total</strong> — Se em 30 dias não sentires diferença, devolvemos o teu dinheiro. Sem perguntas, sem burocracia.</p>
+    </div>
 
-      function handleMessage(e) {
-        if (e.origin !== frameOrigin) return;
-        if (e.source !== f.contentWindow) return;
-        if (!e.data || typeof e.data !== 'object') return;
+    <!-- YES BUTTON -->
+    <a href="https://landpay.site/pay/f71b7c29-da3e-4cd2-898a-a0f7e8fa66b5" class="btn-yes">
+      ⚡ SIM — QUERO OS 3 MÓDULOS ESSENCIAIS AGORA
+      <small>Garantir acesso à Versão Essencial por MT 197</small>
+    </a>
 
-        if (e.data.type === 'landpay-resize' && typeof e.data.height === 'number') {
-          f.style.height = Math.max(320, e.data.height) + 'px';
-        }
-
-        if (e.data.type === 'landpay-redirect' && typeof e.data.url === 'string' && e.data.url) {
-          window.removeEventListener('message', handleMessage);
-          window.location.href = e.data.url;
-        }
-      }
-
-      window.addEventListener('message', handleMessage);
-    })();
-    </script>
+    <!-- NO BUTTON -->
+    <a href="https://www.solucaonatural.space/obrigado" class="btn-no">
+      Não — prefiro continuar sem solução → Continuar para a área de membros
+    </a>
 
   </div><!-- /page-wrap -->
 
