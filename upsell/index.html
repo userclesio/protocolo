@@ -738,6 +738,7 @@
       const min = 130, max = 160;
       let current = 138;
       const el = document.getElementById('viewer-count-upsell');
+      if (!el) return;
       function tick() {
         const d = Math.floor(Math.random() * 3) - 1;
         current = Math.min(max, Math.max(min, current + d));
