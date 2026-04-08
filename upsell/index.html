@@ -651,61 +651,37 @@
       </div>
     </div>
 
-    <!-- LANDPAY UPSELL -->
-    <!-- Landpay Upsell: Guia da Testosterona Natural -->
-    <div id="landpay-upsell-d29608b8-50d3-4cad-8b14-158c64d5070f"></div>
-    <script>
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      var txId = params.get('landpay_tx') || window.landpayTxId || '';
-      var linkId = params.get('landpay_link') || window.landpayLinkId || '';
-      console.log('[LANDPAY] txId:', txId, '| linkId:', linkId);
+    <!-- PRICE BOX + CTA -->
+    <div class="price-box">
+      <div class="only-here-tag">🔒 Só nesta página — nunca mais</div>
+      <h3>Guia da Testosterona Natural</h3>
+      <div class="price-original">Valor normal: 1.200 meticais</div>
+      <div class="price-now"><sup>MT</sup>497</div>
+      <div class="price-label">pagamento único · acesso imediato</div>
+      <div class="price-saving">Estás a poupar 703 meticais hoje</div>
 
-      var c = document.getElementById('landpay-upsell-d29608b8-50d3-4cad-8b14-158c64d5070f');
-      if (!c) { console.warn('[LANDPAY] container not found'); return; }
+      <div id="live-viewers-upsell">
+        <div id="live-dot-upsell"></div>
+        <span><strong id="viewer-count-upsell">138</strong> homens a ver esta oferta agora</span>
+      </div>
+    </div>
 
-      var frameOrigin = "https://landpay.site";
-      var f = document.createElement('iframe');
-      var iframeSrc = "https://landpay.site/upsell/d29608b8-50d3-4cad-8b14-158c64d5070f?embed=true&tx=" + encodeURIComponent(txId) + "&link=" + encodeURIComponent(linkId);
-      console.log('[LANDPAY] iframe src:', iframeSrc);
-      f.src = iframeSrc;
-      f.style.cssText = "width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden";
+    <!-- GUARANTEE -->
+    <div class="guarantee">
+      <div class="g-icon">🛡️</div>
+      <p><strong>Garantia total</strong> — Se em 30 dias não sentires diferença, devolvemos o teu dinheiro. Sem perguntas, sem burocracia.</p>
+    </div>
 
-      f.addEventListener('load', function() { console.log('[LANDPAY] iframe loaded'); });
-      f.addEventListener('error', function() { console.error('[LANDPAY] iframe error'); });
+    <!-- YES BUTTON -->
+    <a href="https://landpay.site/pay/f556a3ca-0654-4d4b-b818-bfae1ed03ea9" class="btn-yes">
+      ⚡ SIM — QUERO ELIMINAR A DISFUNÇÃO ERÉTIL E RECUPERAR A POTÊNCIA TOTAL
+      <small>Adicionar o Guia da Testosterona ao meu acesso por MT 497</small>
+    </a>
 
-      c.appendChild(f);
-
-      // intercept all postMessage for diagnosis
-      window.addEventListener('message', function diagAll(e) {
-        console.log('[LANDPAY] postMessage received | origin:', e.origin, '| data:', JSON.stringify(e.data));
-      });
-
-      function handleMessage(e) {
-        if (e.origin !== frameOrigin) return;
-        if (e.source !== f.contentWindow) return;
-        if (!e.data || typeof e.data !== 'object') return;
-
-        if (e.data.type === 'landpay-resize' && typeof e.data.height === 'number') {
-          f.style.height = Math.max(320, e.data.height) + 'px';
-        }
-
-        if (e.data.type === 'landpay-redirect' && typeof e.data.url === 'string' && e.data.url) {
-          console.warn('[LANDPAY] redirect triggered to:', e.data.url);
-          window.removeEventListener('message', handleMessage);
-          window.location.href = e.data.url;
-        }
-      }
-
-      window.addEventListener('message', handleMessage);
-
-      // monitor any navigation attempt outside the widget
-      window.addEventListener('beforeunload', function(e) {
-        console.warn('[LANDPAY] beforeunload fired — page is navigating away');
-      });
-
-    })();
-    </script>
+    <!-- NO BUTTON -->
+    <a href="https://www.solucaonatural.space/obrigado" class="btn-no">
+      Não — prefiro continuar com ereções fracas e ver o meu casamento sofrer → Continuar para a área de membros
+    </a>
 
   </div><!-- /page-wrap -->
 
@@ -738,7 +714,6 @@
       const min = 130, max = 160;
       let current = 138;
       const el = document.getElementById('viewer-count-upsell');
-      if (!el) return;
       function tick() {
         const d = Math.floor(Math.random() * 3) - 1;
         current = Math.min(max, Math.max(min, current + d));
