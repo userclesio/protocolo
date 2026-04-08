@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Guia da Testosterona Natural — Última Oportunidade</title>
+  <link rel="stylesheet" href="../css/frontend.min.css" media="all">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" media="all">
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+  <script>
+    window.pixelId = "69d2a81bd89ddc8e6a310ea0";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #f5c518;
+      --gold-dark: #c49a10;
+      --red: #e02020;
+      --green: #00c853;
+      --dark: #0a0a0f;
+      --dark2: #12121a;
+      --dark3: #1a1a28;
+      --border: rgba(245,197,24,0.25);
+      --text: #f0f0f0;
+      --muted: #9999aa;
+    }
+
+    @font-face {
+      font-family: Manrope;
+      font-style: normal;
+      font-weight: 200 800;
+      font-display: fallback;
+      src: url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2');
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: Manrope, 'Montserrat', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* ── URGENCY BAR ── */
+    #urgency-bar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: var(--red);
+      color: #fff;
+      padding: 9px 12px;
+      text-align: center;
+      z-index: 99999;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      box-shadow: 0 2px 12px rgba(224,32,32,.5);
+    }
+    #urgency-countdown {
+      font-variant-numeric: tabular-nums;
+      background: rgba(0,0,0,.3);
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+
+    /* ── MAIN WRAPPER ── */
+    .page-wrap {
+      padding-top: 52px;
+      max-width: 520px;
+      margin: 0 auto;
+      padding-left: 18px;
+      padding-right: 18px;
+      padding-bottom: 60px;
+    }
+
+    /* ── ACHIEVEMENT HEADER ── */
+    .achievement-header {
+      background: linear-gradient(135deg, #1a1a28 0%, #0f0f1a 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      margin-top: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .achievement-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,197,24,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge-icon {
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px rgba(245,197,24,.5));
+    }
+    .achievement-header h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .achievement-header p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── LEVEL PROGRESS BAR ── */
+    .level-section {
+      margin: 16px 0;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .level-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 8px;
+    }
+    .progress-track {
+      height: 12px;
+      background: rgba(255,255,255,.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f5c518, #ff8c00);
+      border-radius: 99px;
+      transition: width 1.4s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 0 8px rgba(245,197,24,.6);
+    }
+    .level-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+    .level-desc strong { color: #fff; }
+
+    /* ── HEADLINE ── */
+    .headline {
+      text-align: center;
+      margin: 22px 0 16px;
+    }
+    .headline .tag {
+      display: inline-block;
+      background: rgba(224,32,32,.2);
+      color: #ff6b6b;
+      border: 1px solid rgba(224,32,32,.4);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    .headline h2 {
+      font-size: clamp(22px, 6vw, 30px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .headline h2 .highlight { color: var(--gold); }
+
+    /* ── COPY ── */
+    .problem-intro {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #ccc;
+      margin-bottom: 16px;
+    }
+    .problem-intro strong { color: #fff; }
+
+    /* ── DOCTOR CARD ── */
+    .doctor-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .doctor-avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(245,197,24,.4);
+    }
+    .doctor-info h3 { font-size: 15px; font-weight: 800; color: var(--gold); margin-bottom: 2px; }
+    .doctor-info p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+      text-align: center;
+      margin: 24px 0 14px;
+    }
+
+    /* ── UNLOCK ITEMS ── */
+    .unlock-list { display: flex; flex-direction: column; gap: 10px; }
+    .unlock-item {
+      background: var(--dark2);
+      border: 1px solid rgba(245,197,24,.2);
+      border-radius: 12px;
+      padding: 14px 14px 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .unlock-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold), #ff8c00);
+      border-radius: 3px 0 0 3px;
+    }
+    .unlock-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .unlock-text h4 { font-size: 14px; font-weight: 800; color: var(--gold); margin-bottom: 4px; line-height: 1.3; }
+    .unlock-text p { font-size: 12px; color: #bbb; line-height: 1.5; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonials { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    .testi-card {
+      background: var(--dark2);
+      border: 1px solid rgba(0,200,83,.25);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+    }
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: 8px; left: 14px;
+      font-size: 48px;
+      line-height: 1;
+      color: var(--green);
+      opacity: .25;
+      font-family: Georgia, serif;
+    }
+    .testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 6px; }
+    .testi-text { font-size: 13px; color: #ccc; line-height: 1.55; margin-bottom: 10px; }
+    .testi-author { display: flex; align-items: center; gap: 8px; }
+    .testi-dot {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2a2a40, #3a3a55);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 13px; font-weight: 700; color: #fff; }
+    .testi-location { font-size: 11px; color: var(--muted); }
+    .verified-badge {
+      margin-left: auto;
+      background: rgba(0,200,83,.15);
+      color: var(--green);
+      border: 1px solid rgba(0,200,83,.3);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      flex-shrink: 0;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.07);
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- URGENCY BAR -->
+  <div id="urgency-bar">
+    ⏳ Última chance — esta oferta desaparece em <span id="urgency-countdown">09:59</span>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- ACHIEVEMENT HEADER -->
+    <div class="achievement-header">
+      <div class="badge-icon">⚠️</div>
+      <h1>Espera — Temos uma Última Oferta Para Ti</h1>
+      <p>Percebemos que precisas de algo mais acessível. Por isso criámos esta versão essencial — só para ti, só agora.</p>
+    </div>
+
+    <!-- LEVEL PROGRESS BAR -->
+    <div class="level-section">
+      <div class="level-label">
+        <span>🔥 Teu Nível: Homem em Transformação</span>
+        <span id="pct-label">55%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill"></div>
+      </div>
+      <p class="level-desc">Ainda dá tempo de subir de nível. <strong>O essencial ainda está disponível</strong> — com desconto maior.</p>
+    </div>
+
+    <!-- HEADLINE -->
+    <div class="headline">
+      <div class="tag">🔥 Desconto extra — só nesta página</div>
+      <h2>O núcleo do protocolo,<br><span class="highlight">ao menor preço possível.</span></h2>
+    </div>
+
+    <!-- COPY -->
+    <p class="problem-intro">
+      Não vais ficar sem nada.<br><br>
+      Selecionámos os <strong>3 módulos mais poderosos</strong> do Guia da Testosterona Natural — os que sozinhos já eliminam a disfunção erétil e devolvem a tua potência.<br><br>
+      Sem o resto. Só o que realmente funciona.
+    </p>
+
+    <hr class="divider">
+
+    <!-- DOCTOR CARD -->
+    <div class="doctor-card">
+      <div class="doctor-avatar">👩‍⚕️</div>
+      <div class="doctor-info">
+        <h3>Dra. Lurdes Ernesto</h3>
+        <p>8 anos a tratar homens moçambicanos. Estes 3 módulos são os que receitam primeiro a todos os pacientes.</p>
+      </div>
+    </div>
+
+    <!-- WHAT YOU UNLOCK -->
+    <p class="section-title">🔓 O que está incluído nesta versão</p>
+    <div class="unlock-list">
+      <div class="unlock-item">
+        <div class="unlock-icon">⚡</div>
+        <div class="unlock-text">
+          <h4>Protocolo Hormonal Natural</h4>
+          <p>Ingredientes que explodem a tua produção de testosterona — encontras em qualquer mercado de Maputo, Beira ou Nampula.</p>
+        </div>
+      </div>
+      <div class="unlock-item">
+        <div class="unlock-icon">🔥</div>
+        <div class="unlock-text">
+          <h4>Plano Anti-Disfunção Erétil Definitivo</h4>
+          <p>Receitas que eliminam as ereções fracas, aumentam a circulação e devolvem ereções duras, grossas e longas.</p>
+        </div>
+      </div>
+      <div class="unlock-item">
+        <div class="unlock-icon">📅</div>
+        <div class="unlock-text">
+          <h4>Plano de 30 Dias Completo</h4>
+          <p>Manhã, almoço e noite — para eliminar a disfunção erétil e recuperar o desempenho que tinhas aos 25.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TESTIMONIAL -->
+    <p class="section-title">💬 Resultado real</p>
+    <div class="testimonials">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Em 21 dias a minha disfunção erétil desapareceu. O meu pênis está mais duro, maior e consigo durar muito mais. A minha mulher não acredita no que está a acontecer."</p>
+        <div class="testi-author">
+          <div class="testi-dot">C</div>
+          <div>
+            <div class="testi-name">Carlos</div>
+            <div class="testi-location">44 anos · Maputo</div>
+          </div>
+          <div class="verified-badge">✓ Real</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANDPAY DOWNSELL -->
+    <!-- Landpay Downsell: Guia da Testosterona Natural -->
+    <div id="landpay-upsell-413a027a-3398-4882-a5ea-51b514f268c8"></div>
+    <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var txId = params.get('landpay_tx') || window.landpayTxId || '';
+      var linkId = params.get('landpay_link') || window.landpayLinkId || '';
+      var c = document.getElementById('landpay-upsell-413a027a-3398-4882-a5ea-51b514f268c8');
+      var f = document.createElement('iframe');
+      f.src = 'https://landpay.site/upsell/413a027a-3398-4882-a5ea-51b514f268c8?embed=true&tx=' + txId + '&link=' + linkId;
+      f.style.cssText = 'width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden';
+      c.appendChild(f);
+      window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'landpay-resize') f.style.height = e.data.height + 'px';
+        if (e.data && e.data.type === 'landpay-redirect') window.location.href = e.data.url;
+      });
+    })();
+    </script>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    // Urgency countdown — 10 minutes
+    (function () {
+      let remaining = 10 * 60;
+      const el = document.getElementById('urgency-countdown');
+      function fmt(s) {
+        const m = String(Math.floor(s / 60)).padStart(2, '0');
+        const sc = String(s % 60).padStart(2, '0');
+        return m + ':' + sc;
+      }
+      const t = setInterval(function () {
+        remaining--;
+        if (remaining <= 0) { clearInterval(t); el.textContent = '00:00'; return; }
+        el.textContent = fmt(remaining);
+      }, 1000);
+    })();
+
+    // Progress bar animation
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.getElementById('prog-fill').style.width = '55%';
+      }, 400);
+    });
+  </script>
+
+</body>
+</html>
