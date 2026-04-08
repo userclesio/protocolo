@@ -659,14 +659,27 @@
       var params = new URLSearchParams(window.location.search);
       var txId = params.get('landpay_tx') || window.landpayTxId || '';
       var linkId = params.get('landpay_link') || window.landpayLinkId || '';
+      console.log('[LANDPAY] txId:', txId, '| linkId:', linkId);
+
       var c = document.getElementById('landpay-upsell-d29608b8-50d3-4cad-8b14-158c64d5070f');
-      if (!c) return;
+      if (!c) { console.warn('[LANDPAY] container not found'); return; }
 
       var frameOrigin = "https://landpay.site";
       var f = document.createElement('iframe');
-      f.src = "https://landpay.site/upsell/d29608b8-50d3-4cad-8b14-158c64d5070f" + '?embed=true&tx=' + encodeURIComponent(txId) + '&link=' + encodeURIComponent(linkId);
+      var iframeSrc = "https://landpay.site/upsell/d29608b8-50d3-4cad-8b14-158c64d5070f?embed=true&tx=" + encodeURIComponent(txId) + "&link=" + encodeURIComponent(linkId);
+      console.log('[LANDPAY] iframe src:', iframeSrc);
+      f.src = iframeSrc;
       f.style.cssText = "width:100%;border:none;min-height:600px;border-radius:16px;overflow:hidden";
+
+      f.addEventListener('load', function() { console.log('[LANDPAY] iframe loaded'); });
+      f.addEventListener('error', function() { console.error('[LANDPAY] iframe error'); });
+
       c.appendChild(f);
+
+      // intercept all postMessage for diagnosis
+      window.addEventListener('message', function diagAll(e) {
+        console.log('[LANDPAY] postMessage received | origin:', e.origin, '| data:', JSON.stringify(e.data));
+      });
 
       function handleMessage(e) {
         if (e.origin !== frameOrigin) return;
@@ -678,12 +691,19 @@
         }
 
         if (e.data.type === 'landpay-redirect' && typeof e.data.url === 'string' && e.data.url) {
+          console.warn('[LANDPAY] redirect triggered to:', e.data.url);
           window.removeEventListener('message', handleMessage);
           window.location.href = e.data.url;
         }
       }
 
       window.addEventListener('message', handleMessage);
+
+      // monitor any navigation attempt outside the widget
+      window.addEventListener('beforeunload', function(e) {
+        console.warn('[LANDPAY] beforeunload fired — page is navigating away');
+      });
+
     })();
     </script>
 
